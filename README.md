@@ -32,7 +32,7 @@
 
 
 ### Installation
-This code built and tested with [Python 3.7.4, included package 
+This code built and tested with Python 3.7.4, included package pandas 1.3.4, numpy,
 
 ## further improvement
 
