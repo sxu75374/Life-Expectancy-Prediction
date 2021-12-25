@@ -27,20 +27,14 @@ In this project, I use the [Life Expectancy dataset from WHO](https://www.kaggle
 
 By analyzing this dataset, we could figure out which factors may significantly contribute to life expectancy and the analysis result could give suggestions to those countries and help improve life expectancy, which makes the project essentially important and meaningful.
 
-
-
-
-
+## Contents
 There are four main parts. 
 
-- Analyzing the factors that may have impact on the life expectancy based on feature correlation and feature importance.
-- implementing different data washing, data handling, data preprocessing, feature engineer, and model selection techniques to improve the performance and make the prediction feasible and reasonable.
+- Analyzing the factors that may have impact on the life expectancy based on feature correlation and feature importance. implementing different data washing, data handling, data preprocessing, and feature engineer methods.
 
-- The second main part, I apply 7 advanced Supervised regression models, Lasso, Ridge, CART, Random Forest, AdaBoost, SVR, and KNN, on the dataset and do the performance comparison based on MSE and R^2 score. 
+- The second main part, I apply 7 advanced Supervised regression models, Lasso, Ridge, CART, Random Forest, AdaBoost, SVR, and KNN, on the dataset and do the performance comparison based on MSE and R^2 score. I do the model selection techniques to improve the performance and make the prediction feasible and reasonable.
 - The third part: extension part 1, I implement Semi-Supervised Learning algorithm to deal with the real-world problem include unlabeled data. I use Co-training regression and Label Propagation regression to do the performance comparison with the baseline KNN algorithm. We could see the unlabeled data help improve the labeled data performance in an SSL model. 
 - The last part: extension part 2, I implement Transfer Learning to the dataset by dividing the whole dataset based on ‘Status’ into developed country dataset (target domain) and developing country dataset (source domain). I use the Two-stage TrAdaBoost.R2 to do the comparison with Baseline AdaBoost model. For supervised learning part I use Cross-Validation to do the model selection; and in data preprocessing, extension SSL and extension TL part, I use validation to do the model selection. The final performances between Supervised Learning models are Support Vector Regression > Random Forest > AdaBoost > K-Nearest Neighbors > Ridge > Lasso > CART > non-trivial (Linear Regression) > Trivial (Mean). For the performances of the Semi-Supervised Learning model are Label Propagation > Co-training > Baseline KNN. For the performances of the Transfer Learning model are Two-stage TrAdaBoost.R2 > Baseline AdaBoost
-
-## Contents
 
 
 ## Built With
@@ -60,7 +54,7 @@ This code built and tested with Python 3.7.4, included package scikit-learn 1.0.
 
 [Profile](https://github.com/sxu75374) - <a href="mailto:sxu75374@usc.edu?subject=Nice to meet you!&body=Hi Shuai!">Email</a>
 
-Project Link: [https://github.com/sxu75374/PC-MRI-research](https://github.com/sxu75374/PC-MRI-research)
+Project Link: [https://github.com/sxu75374/LifeExpectancyPrediction](https://github.com/sxu75374/LifeExpectancyPrediction)
 
 <!-- LICENSE -->
 ## License
