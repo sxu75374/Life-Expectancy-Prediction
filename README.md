@@ -23,7 +23,7 @@ In this project, I use the [Life Expectancy dataset from WHO](https://www.kaggle
 By analyzing this dataset, we could figure out which factors may significantly contribute to life expectancy and the analysis result could give suggestions to those countries and help improve life expectancy, which makes the project essentially important and meaningful.
 
 ## Contents
-There are four main parts. 
+There are four main parts in `main.py`. 
 
 1. Analyzing the factors that may have impact on the life expectancy based on feature correlation and feature importance. implementing different data washing, data handling, data preprocessing, and feature engineer methods.
 
