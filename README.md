@@ -23,17 +23,20 @@ In this project, I use the [Life Expectancy dataset from WHO](https://www.kaggle
 By analyzing this dataset, we could figure out which factors may significantly contribute to life expectancy and the analysis result could give suggestions to those countries and help improve life expectancy, which makes the project essentially important and meaningful.
 
 ## Contents
-There are four main parts in `main.py`. 
+There are four main parts in `WholeProject.py`. 
 
 1. Analyzing the factors that may have impact on the life expectancy based on feature correlation and feature importance. implementing different data washing, data handling, data preprocessing, and feature engineer methods.
 
 2. Applying 7 advanced Supervised regression models, Lasso, Ridge, CART, Random Forest, AdaBoost, SVR, and KNN, on the dataset and do the performance comparison based on MSE and R^2 score. I do the model selection techniques to improve the performance and make the prediction feasible and reasonable.
  
-3.  Implementing Semi-Supervised Learning algorithm to deal with the real-world problem include unlabeled data. I use Co-training regression and Label Propagation regression to do the performance comparison with the baseline KNN algorithm. We could see the unlabeled data help improve the labeled data performance in an SSL model. 
+3.  Implementing Semi-Supervised Learning algorithm to deal with the real-world problem include unlabeled data. I use Co-training regression in `coreg.py` and Label Propagation regression to do the performance comparison with the baseline KNN algorithm. We could see the unlabeled data help improve the labeled data performance in an SSL model.  `coreg.py` is modified based on the code of Github User nealjean https://github.com/nealjean/coreg for Co-training regressor(COREG)
+based on the paper [Semi-Supervised Regression with Co-Training](http://dl.acm.org/citation.cfm?id=1642439) by Zhou and Li (IJCAI, 2005).
 
-4. Implementing Transfer Learning to the dataset by dividing the whole dataset based on ‘Status’ into developed country dataset (target domain) and developing country dataset (source domain). I use the Two-stage TrAdaBoost.R2 to do the comparison with Baseline AdaBoost model. 
+4. Implementing Transfer Learning to the dataset by dividing the whole dataset based on ‘Status’ into developed country dataset (target domain) and developing country dataset (source domain). I use the Two-stage TrAdaBoost.R2 algorithm in the paper written by Pardoe, David, and Peter Stone. [Boosting for Regression Transfer (ICML 2010)](https://www.cs.utexas.edu/~dpardoe/papers/ICML10.pdf) in `TwoStageTrAdaBoostR2.py` to do the comparison with Baseline AdaBoost model. `TwoStageTrAdaBoostR2.py` is modified based on the code of Github User jay15summer https://github.com/jay15summer/Two-stage-TrAdaboost.R2.
  
 (For supervised learning part I use Cross-Validation to do the model selection; and in data preprocessing, extension SSL and extension TL part, I use validation to do the model selection.)
+
+`main.py` includes the results from the best models.
 
 ## Screenshots
 <br />
