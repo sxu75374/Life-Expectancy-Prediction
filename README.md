@@ -36,8 +36,11 @@ There are four main parts.
 - The third part: extension part 1, I implement Semi-Supervised Learning algorithm to deal with the real-world problem include unlabeled data. I use Co-training regression and Label Propagation regression to do the performance comparison with the baseline KNN algorithm. We could see the unlabeled data help improve the labeled data performance in an SSL model. 
 - The last part: extension part 2, I implement Transfer Learning to the dataset by dividing the whole dataset based on ‘Status’ into developed country dataset (target domain) and developing country dataset (source domain). I use the Two-stage TrAdaBoost.R2 to do the comparison with Baseline AdaBoost model. For supervised learning part I use Cross-Validation to do the model selection; and in data preprocessing, extension SSL and extension TL part, I use validation to do the model selection. The final performances between Supervised Learning models are Support Vector Regression > Random Forest > AdaBoost > K-Nearest Neighbors > Ridge > Lasso > CART > non-trivial (Linear Regression) > Trivial (Mean). For the performances of the Semi-Supervised Learning model are Label Propagation > Co-training > Baseline KNN. For the performances of the Transfer Learning model are Two-stage TrAdaBoost.R2 > Baseline AdaBoost
 
-
-![plot](./Users/xs/Library/Mobile Documents/com~apple~CloudDocs/EE660 machine learning for signal/作业/final project/EE660 Final Project /final project report material/Screen Shot 2021-12-01 at 22.04.18.png)
+## Screenshot
+<br />
+<div align="center">
+  <img src="images/logo.png" alt="Logo" width="80" height="80">
+</div>
 
 
 ## Built With
