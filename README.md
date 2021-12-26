@@ -39,7 +39,8 @@ There are four main parts.
 ## Screenshot
 <br />
 <div align="center">
-  <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <img src="screenshots/screenshot1.png" alt="screenshot1" width="600" height="400">
+  <img src="screenshots/screenshot2.png" alt="screenshot2" width="500" height="500">
 </div>
 
 
