@@ -37,6 +37,9 @@ There are four main parts.
 - The last part: extension part 2, I implement Transfer Learning to the dataset by dividing the whole dataset based on ‘Status’ into developed country dataset (target domain) and developing country dataset (source domain). I use the Two-stage TrAdaBoost.R2 to do the comparison with Baseline AdaBoost model. For supervised learning part I use Cross-Validation to do the model selection; and in data preprocessing, extension SSL and extension TL part, I use validation to do the model selection. The final performances between Supervised Learning models are Support Vector Regression > Random Forest > AdaBoost > K-Nearest Neighbors > Ridge > Lasso > CART > non-trivial (Linear Regression) > Trivial (Mean). For the performances of the Semi-Supervised Learning model are Label Propagation > Co-training > Baseline KNN. For the performances of the Transfer Learning model are Two-stage TrAdaBoost.R2 > Baseline AdaBoost
 
 
+![plot](./Users/xs/Library/Mobile Documents/com~apple~CloudDocs/EE660 machine learning for signal/作业/final project/EE660 Final Project /final project report material/Screen Shot 2021-12-01 at 22.04.18.png)
+
+
 ## Built With
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/)
 
