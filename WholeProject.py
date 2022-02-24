@@ -173,13 +173,6 @@ def feature_engineer(df):
     # plt.plot(df.isna().sum()/len(df))
     # plt.show()
 
-    #     # ety = df[df['GDP'].isnull()].index.to_numpy()
-    #     # # print(df['GDP'].loc[ety])
-    #     # # print(pred_GDP[ety])
-    #     # df['GDP'].fillna(1192.02991098, inplace=True)
-    #     # # check empty
-    #     # print(df[df['GDP'].isnull()].index.to_numpy())
-
     # fill the missing schoolingcolumns
     df['Schooling'].fillna(df['Schooling'].mean(), inplace=True)
     lr_sch = LinearRegression()
@@ -215,18 +208,6 @@ def feature_engineer(df):
 
     pred_HB = (pred_HB_D + pred_HB_P)/2
 
-    # from mpl_toolkits.mplot3d import Axes3D
-    #
-    # fig = plt.figure()
-    # ax = Axes3D(fig)
-    # sequence_containing_x_vals = df['Diphtheria'].tolist()
-    # sequence_containing_y_vals = df['Polio'].tolist()
-    # sequence_containing_z_vals = pred_HB
-    # ax.scatter(sequence_containing_x_vals, sequence_containing_y_vals, sequence_containing_z_vals)
-    # ax.set_xlabel('Diptheria')
-    # ax.set_ylabel('Polio')
-    # ax.set_zlabel('Hepatitis B')
-
     ety = df[df['Hepatitis B'].isnull()].index.to_numpy()
     for i in range(len(ety)):
         index = ety[i]
@@ -248,27 +229,6 @@ def feature_engineer(df):
     plt.xlabel('Polio & Diphtheria')
     plt.ylabel('avg Hepatitis B')
     plt.legend()
-
-
-    # # fill the missing Population columns
-    # lr_PP = LinearRegression()
-    # df['infant deaths'].fillna(df['infant deaths'].mean(), inplace=True)
-    # df['under-five deaths'].fillna(df['under-five deaths'].mean(), inplace=True)
-    # print(df[df['Population'].isnull()].index.to_numpy())
-    # # print(dropped_df[['Diphtheria', 'Polio']].to_numpy())
-    # lr_PP.fit(dropped_df[['under-five deaths', 'infant deaths']].to_numpy(), dropped_df['Population'].to_numpy().reshape(-1, 1))
-    # pred_PP = lr_PP.predict(df[['under-five deaths', 'infant deaths']].to_numpy())
-    # print('pred_PP', pred_PP)
-    # ety = df[df['Population'].isnull()].index.to_numpy()
-    # for i in range(len(ety)):
-    #     index = ety[i]
-    #     df['Population'].loc[index] = pred_PP[index][0]
-    # # check empty
-    # plt.figure()
-    # plt.plot(df.isna().sum()/len(df))
-    # plt.show()
-    # print(df.isna().sum()/len(df))
-    # print(df[df['Population'].isnull()].index.to_numpy())
 
     # fill missing Life expectancy columns
     df_ing = df.loc[df['Developed'] == 0]
@@ -308,35 +268,6 @@ def feature_engineer(df):
     sorted_df_test = df_test.sort_values(by=["Year"], ascending=True)
 
     return df, sorted_df_train, sorted_df_val, sorted_df_test
-
-
-'''TL for developed = 1, developing = 0, Classification'''
-# def get_TL_dataset(df):
-#     df_TL = df[
-#         ["Continent", "Country", "Continent Labels", "Country Labels", "Year", "Life expectancy", "Adult Mortality", "infant deaths", "Alcohol",
-#          "percentage expenditure", "Hepatitis B", "Measles", "BMI", "under-five deaths", "Polio", "Total expenditure",
-#          "Diphtheria", "HIV/AIDS", "GDP", "thinness 1-19 years", "thinness 5-9 years",
-#          "Income composition of resources", "Schooling", "Developed"]]
-#     df_ing = df_TL.loc[df_TL['Developed'] == 0]
-#     df_ed = df_TL.loc[df_TL['Developed'] == 1]
-#     print('df_ing', df_ing)
-#     print('df_ed', df_ed)
-#     Xs = df_ing.to_numpy()[:, 2:-1]  # Xs Developing (2426, 21)
-#     ys = df_ing['Developed'].to_numpy()  # 00000 ys Developing (2426,)
-#     print('Xs Developing', Xs)
-#     print('ys Developing', ys)
-#     data_T = df_ed[df_ed['Year'].between(2000, 2000)]
-#     Xt = data_T.to_numpy()[:, 2:-1]  # Xt Developed(2000) (32, 21)
-#     yt = data_T['Developed'].to_numpy()  # yt Developed(2000) (32,)
-#     print('Xt Developed(2000)', Xt.shape)
-#     print('yt Developed(2000)', yt.shape)
-#     data_T_test = df_ed[df_ed['Year'].between(2001, 2015)]  # Xt_test (480, 21)
-#     Xt_test = data_T_test.to_numpy()[:, 2:-1]  # yt_test (480,)
-#     yt_test = data_T_test['Developed'].to_numpy()
-#     print('Xt_test Developed(2001-2015)', Xt_test.shape)
-#     print('yt_test Developed(2001-2015)', yt_test.shape)
-#     return Xs, ys, Xt, yt, Xt_test, yt_test
-
 
 def get_TL_dataset(df):
     '''TL for life expectancy regression'''
@@ -712,8 +643,6 @@ plt.xlabel('best feature number K')
 plt.ylabel('MSE score')
 plt.legend()
 
-# 3333333 model selection feature preprcessing techniques # for good result
-
 
 '''Supervised Learning'''
 # data after feature engineer and feature selection, k=6
@@ -765,53 +694,6 @@ pred_non_trivial = non_trivial_system(X_train_SL, Y_train_SL, X_test_SL, Y_test_
 mse_non_trivial = get_mse(Y_test_SL, pred_non_trivial)
 print('Test MSE of Baseline non-trivial system: ', mse_non_trivial)
 print('Test R^2 of Baseline non-trivial system: ', r2_score(Y_test_SL, pred_non_trivial))
-
-
-# # model 1: Polynomial Linear Regression
-# print('\n')
-# print('=== Model 1: Polynomial Linear Regression ===')
-#
-# # best model parameter selection - Polynomial features
-# D = list()
-# MSE_val_p = list()
-# for d in range(4):
-#     poly = PolynomialFeatures(degree=d+1)  # best poly=2
-#     D.append(d+1)
-#     X_train_SL_p = poly.fit_transform(X_train_SL, Y_train_SL)
-#     X_val_SL_p = poly.transform(X_val_SL)
-#     X_test_SL_p = poly.transform(X_test_SL)
-#     lr = LinearRegression()
-#     lr.fit(X_train_SL_p, Y_train_SL)
-#     val_pred = lr.predict(X_val_SL_p)
-#     # print(val_pred)
-#     mse_val_p = mean_squared_error(Y_val_SL, val_pred)
-#     print('Polynomial degree = ', d+1, ', Validation MSE of Polynomial regression = ', mse_val_p)
-#     MSE_val_p.append(mse_val_p)
-# print('best polynomial feature degree D is: ', np.argmin(MSE_val_p)+1)
-# print('best MSE with', np.argmin(MSE_val_p)+1, ' feature degree is: ', MSE_val_p[np.argmin(MSE_val_p)])
-# plt.figure()
-# plt.plot(D, MSE_val_p, label='polynomial feature degree vs MSE score')
-# plt.scatter(np.argmin(MSE_val_p)+1, MSE_val_p[np.argmin(MSE_val_p)], marker='o')
-# plt.title('polynomial feature degree D vs MSE score')
-# plt.xlabel('polynomial feature degree D')
-# plt.ylabel('MSE score')
-# plt.legend()
-#
-#
-# best_degree = 2
-# polyt = PolynomialFeatures(degree=best_degree)
-# X_train_SL_pt = polyt.fit_transform(X_train_SL, Y_train_SL)
-# lrt = LinearRegression()
-# lrt.fit(X_train_SL_pt, Y_train_SL)
-# pred_poly_train = lrt.predict(X_train_SL_pt)
-# print('Training MSE of Polynomial regression = ', mean_squared_error(Y_train_SL, pred_poly_train))
-#
-# # test
-# X_test_SL_pt = polyt.transform(X_test_SL)
-# pred_poly_test = lrt.predict(X_test_SL_pt)
-# # print(val_pred)
-# print('when best degree = ', best_degree, ', Test MSE of Polynomial regression = ', mean_squared_error(Y_test_SL, pred_poly_test))
-
 
 # model 1: SVR
 from sklearn.svm import SVR
