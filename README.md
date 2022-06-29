@@ -66,7 +66,7 @@ This code built and tested with Python 3.7.4, included package scikit-learn 1.0.
 
 **Shuai Xu** | University of Southern California
 
-[Profile](https://github.com/sxu75374) - <a href="mailto:sxu75374@usc.edu?subject=Nice to meet you!&body=Hi Shuai!">Email</a>
+[Profile](https://github.com/sxu75374) - <a href="mailto:imshuaixu@gmail.com?subject=Nice to meet you!&body=Hi Shuai!">Email</a>
 
 Project Link: [https://github.com/sxu75374/LifeExpectancyPrediction](https://github.com/sxu75374/LifeExpectancyPrediction)
 
